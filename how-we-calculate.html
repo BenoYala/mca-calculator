@@ -53,7 +53,7 @@ Effective annual rate  = (1 + r)^(payments per year) − 1</pre>
 <h2>Assumptions</h2>
 <ul>
 <li>Payments are equal in size. Real contracts may take a percentage of daily sales instead.</li>
-<li>Daily payments fall on 22 business days per month (252 per year). Weekly payments use 52 per year.</li>
+<li>Daily payments fall on 22 business days per month (264 per year). Weekly payments use 52 per year.</li>
 <li>Upfront fees are a percentage of the funding amount, deducted from the cash you receive.</li>
 <li>There are no other costs, such as broker fees outside the contract, penalties or renewals.</li>
 <li>The term is the time to pay back the full amount, with no early-payoff discount.</li>
@@ -70,9 +70,9 @@ Effective annual rate  = (1 + r)^(payments per year) − 1</pre>
 </ul>
 <h2>Check it yourself</h2>
 <p>In a spreadsheet, the estimated APR for the first example below is:</p>
-<pre>=RATE(132, -492.42, 50000) * 252</pre>
-<p>which returns about 104%. Here are test cases and the results our calculator produces:</p>
-<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Inputs</th><th class="num">Payments</th><th class="num">Payment</th><th class="num">APR</th><th class="num">Effective</th></tr></thead><tbody><tr><td>$50,000, 1.30, 6 mo, 0% fee, daily</td><td class="num">132</td><td class="num">$492.42</td><td class="num">104.3%</td><td class="num">183.2%</td></tr><tr><td>$50,000, 1.30, 6 mo, 5% fee, daily</td><td class="num">132</td><td class="num">$492.42</td><td class="num">126.0%</td><td class="num">251.4%</td></tr><tr><td>$50,000, 1.30, 6 mo, 0% fee, weekly</td><td class="num">26</td><td class="num">$2,500.00</td><td class="num">106.6%</td><td class="num">187.2%</td></tr><tr><td>$25,000, 1.25, 9 mo, 0% fee, daily</td><td class="num">198</td><td class="num">$157.83</td><td class="num">58.8%</td><td class="num">80.0%</td></tr><tr><td>$100,000, 1.40, 12 mo, 3% fee, daily</td><td class="num">264</td><td class="num">$530.30</td><td class="num">74.7%</td><td class="num">110.9%</td></tr><tr><td>$10,000, 1.15, 3 mo, 0% fee, weekly</td><td class="num">13</td><td class="num">$884.62</td><td class="num">107.1%</td><td class="num">188.6%</td></tr></tbody></table></div>
+<pre>=RATE(132, -492.42, 50000) * 264</pre>
+<p>which returns about 109%. Here are test cases and the results our calculator produces:</p>
+<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Inputs</th><th class="num">Payments</th><th class="num">Payment</th><th class="num">APR</th><th class="num">Effective</th></tr></thead><tbody><tr><td>$50,000, 1.30, 6 mo, 0% fee, daily</td><td class="num">132</td><td class="num">$492.42</td><td class="num">109.3%</td><td class="num">197.6%</td></tr><tr><td>$50,000, 1.30, 6 mo, 5% fee, daily</td><td class="num">132</td><td class="num">$492.42</td><td class="num">132.0%</td><td class="num">273.1%</td></tr><tr><td>$50,000, 1.30, 6 mo, 0% fee, weekly</td><td class="num">26</td><td class="num">$2,500.00</td><td class="num">106.6%</td><td class="num">187.2%</td></tr><tr><td>$25,000, 1.25, 9 mo, 0% fee, daily</td><td class="num">198</td><td class="num">$157.83</td><td class="num">61.6%</td><td class="num">85.1%</td></tr><tr><td>$100,000, 1.40, 12 mo, 3% fee, daily</td><td class="num">264</td><td class="num">$530.30</td><td class="num">78.3%</td><td class="num">118.5%</td></tr><tr><td>$10,000, 1.15, 3 mo, 0% fee, weekly</td><td class="num">13</td><td class="num">$884.62</td><td class="num">107.1%</td><td class="num">188.6%</td></tr></tbody></table></div>
 <p>For the loan calculator, $50,000 at 12% for 24 months gives a monthly payment of $2,353.67 and total interest of $6,488.17, which matches a full amortization schedule that ends at a zero balance.</p>
 <h2>What we do not model</h2>
 <ul>
@@ -96,9 +96,9 @@ Effective annual rate  = (1 + r)^(payments per year) − 1</pre>
 <div><h4>Site</h4><ul>
 <li><a href="/calculators.html">All tools</a></li><li><a href="/guides.html">All guides</a></li><li><a href="/how-we-calculate.html">How we calculate</a></li>
 <li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li>
-<li><a href="/privacy-policy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Use</a></li></ul></div>
+<li><a href="/affiliate-disclosure.html">Affiliate disclosure</a></li><li><a href="/privacy-policy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Use</a></li></ul></div>
 </div>
-<p class="legal">MCA APR is an educational tool. It is not a lender, broker, law firm or financial advisor, and nothing on this site is financial, legal or tax advice. Results are estimates based on the numbers you enter; check your actual contract. &copy; 2026 MCA APR.</p>
+<p class="legal">MCA APR is an educational tool. It is not a lender, broker, law firm or financial advisor, and nothing on this site is financial, legal or tax advice. Results are estimates based on the numbers you enter; check your actual contract. Some links are affiliate links. If you apply through them, we may earn a commission. That does not change the calculator or the guides. <a href="/affiliate-disclosure.html">Affiliate disclosure</a>. &copy; 2026 MCA APR.</p>
 </div></footer>
 </body>
 </html>

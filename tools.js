@@ -16,9 +16,9 @@
     });
   }
 
-  // Daily payments: 22 business days per month (252 per year). Weekly: 52 per year.
+  // Daily payments: 22 business days per month (264 per year). Weekly: 52 per year.
   var FREQ = {
-    daily:  { perYear: 252, perMonth: 22,      unit: "business day", label: "Daily payment" },
+    daily:  { perYear: 264, perMonth: 22,      unit: "business day", label: "Daily payment" },
     weekly: { perYear: 52,  perMonth: 52 / 12, unit: "week",         label: "Weekly payment" }
   };
 

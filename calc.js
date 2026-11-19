@@ -3,9 +3,9 @@
 
   var $ = function (id) { return document.getElementById(id); };
 
-  // Daily payments: 22 business days per month (252 per year). Weekly: 52 per year.
+  // Daily payments: 22 business days per month (264 per year). Weekly: 52 per year.
   var FREQ = {
-    daily:  { perYear: 252, perMonth: 22,      label: "Daily payment" },
+    daily:  { perYear: 264, perMonth: 22,      label: "Daily payment" },
     weekly: { perYear: 52,  perMonth: 52 / 12, label: "Weekly payment" }
   };
   var INPUTS = ["amount", "factor", "term", "fee", "freq"];
