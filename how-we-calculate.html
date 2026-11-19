@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9131575690704524"
+     crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="tOGaRrfNSOmwP-NwDBG6DK3OV9zGl6RKqxJnjEbIxjQ" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We Calculate: Methods, Assumptions and Test Cases | MCA APR</title>
+<meta name="description" content="How MCA APR calculates APR, payments and payback: formulas, assumptions, sensitivity and test cases you can check yourself.">
+<link rel="canonical" href="https://www.mca-apr.com/how-we-calculate.html">
+<meta name="theme-color" content="#0a1020">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MCA APR">
+<meta property="og:title" content="How We Calculate: Methods, Assumptions and Test Cases | MCA APR">
+<meta property="og:description" content="How MCA APR calculates APR, payments and payback: formulas, assumptions, sensitivity and test cases you can check yourself.">
+<meta property="og:url" content="https://www.mca-apr.com/how-we-calculate.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2334d399'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Arial' font-weight='800' font-size='20' fill='%2304130d'%3E%25%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site"><div class="wrap nav">
+<a class="logo" href="/" aria-label="MCA APR home"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#g)"/><text x="16" y="22.5" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="19" fill="#04130d">%</text></svg><span>MCA <em>APR</em></span></a>
+<nav class="links" aria-label="Main"><a href="/">APR Calculator</a><a href="/calculators.html">More Tools</a><a href="/guides.html">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+</div></header>
+<main>
+<div class="wrap narrow">
+<div class="crumbs"><a href="/">Home</a> / How we calculate</div>
+<div class="art-head"><h1>How we calculate</h1><p class="meta">Last updated November 18, 2026</p></div>
+<article class="prose" style="padding-bottom:20px">
+
+<p>A calculator is only useful if you can trust it. This page explains exactly how our numbers are produced, what we assume, how much those assumptions can move the answer, and how you can check the math yourself.</p>
+<h2>Our principles</h2>
+<ul>
+<li><strong>Estimates, clearly labeled.</strong> We give you an estimate to compare offers, not a replacement for your contract.</li>
+<li><strong>Assumptions in plain sight.</strong> Every assumption is listed below and on the calculators.</li>
+<li><strong>Checkable.</strong> You can reproduce every result with a spreadsheet.</li>
+<li><strong>Corrected when wrong.</strong> If you find a mistake, tell us and we will fix it and say so.</li>
+</ul>
+<h2>The APR method</h2>
+<p>An MCA is quoted with a factor rate, so we first convert it into payments:</p>
+<pre>Total payback     = Funding amount × Factor rate
+Cash received     = Funding amount × (1 − Upfront fee %)
+Payments (n)      = Term in months × payments per month
+Payment           = Total payback ÷ n</pre>
+<p>Then we find the periodic rate <code>r</code> that makes the present value of all payments equal to the cash you actually received. This is the same idea behind the APR on a loan:</p>
+<pre>Cash received = Σ  Payment ÷ (1 + r)^k        k = 1 … n
+
+Estimated APR          = r × payments per year
+Effective annual rate  = (1 + r)^(payments per year) − 1</pre>
+<p>There is no closed-form solution for <code>r</code>, so we solve it numerically. We also show a "flat annualized cost", which is simply cost ÷ cash received ÷ years. That figure ignores the fact that you repay gradually, so it understates the true cost of a daily-payment advance. We show it because some brokers quote it.</p>
+<h2>Assumptions</h2>
+<ul>
+<li>Payments are equal in size. Real contracts may take a percentage of daily sales instead.</li>
+<li>Daily payments fall on 22 business days per month (252 per year). Weekly payments use 52 per year.</li>
+<li>Upfront fees are a percentage of the funding amount, deducted from the cash you receive.</li>
+<li>There are no other costs, such as broker fees outside the contract, penalties or renewals.</li>
+<li>The term is the time to pay back the full amount, with no early-payoff discount.</li>
+</ul>
+<h2>How much do the assumptions matter?</h2>
+<p>Different months have different numbers of business days, and some funders debit on a different calendar. Here is the example offer ($50,000, factor 1.30, 6 months, daily payments) under different business-day assumptions:</p>
+<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Business days per month</th><th class="num">Payments</th><th class="num">Payment</th><th class="num">Estimated APR</th></tr></thead><tbody><tr><td>20</td><td class="num">120</td><td class="num">$541.67</td><td class="num">109.2%</td></tr><tr><td>21</td><td class="num">126</td><td class="num">$515.87</td><td class="num">109.3%</td></tr><tr><td>22</td><td class="num">132</td><td class="num">$492.42</td><td class="num">109.3%</td></tr><tr><td>23</td><td class="num">138</td><td class="num">$471.01</td><td class="num">109.3%</td></tr></tbody></table></div>
+<p class="cap">The result moves by a few points but the picture does not change. A provider's disclosed APR may differ from ours by a similar margin.</p>
+<h2>The other calculators</h2>
+<ul>
+<li><strong>Payment calculator:</strong> monthly repayments = total payback ÷ term in months. Share of revenue = monthly repayments ÷ monthly revenue. Share of gross profit = monthly repayments ÷ (revenue × gross margin).</li>
+<li><strong>MCA vs. loan:</strong> the loan payment uses the standard amortization formula, <code>P × i ÷ (1 − (1 + i)^−n)</code> with <code>i</code> = annual rate ÷ 12. Its APR is solved the same way as the advance's, on the cash you receive after any origination fee.</li>
+<li><strong>Payback period:</strong> cost of advance = total payback − cash received. Net result = extra profit per month × (term − delay) − cost. Months to cover the cost = delay + cost ÷ extra profit per month.</li>
+</ul>
+<h2>Check it yourself</h2>
+<p>In a spreadsheet, the estimated APR for the first example below is:</p>
+<pre>=RATE(132, -492.42, 50000) * 252</pre>
+<p>which returns about 104%. Here are test cases and the results our calculator produces:</p>
+<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Inputs</th><th class="num">Payments</th><th class="num">Payment</th><th class="num">APR</th><th class="num">Effective</th></tr></thead><tbody><tr><td>$50,000, 1.30, 6 mo, 0% fee, daily</td><td class="num">132</td><td class="num">$492.42</td><td class="num">104.3%</td><td class="num">183.2%</td></tr><tr><td>$50,000, 1.30, 6 mo, 5% fee, daily</td><td class="num">132</td><td class="num">$492.42</td><td class="num">126.0%</td><td class="num">251.4%</td></tr><tr><td>$50,000, 1.30, 6 mo, 0% fee, weekly</td><td class="num">26</td><td class="num">$2,500.00</td><td class="num">106.6%</td><td class="num">187.2%</td></tr><tr><td>$25,000, 1.25, 9 mo, 0% fee, daily</td><td class="num">198</td><td class="num">$157.83</td><td class="num">58.8%</td><td class="num">80.0%</td></tr><tr><td>$100,000, 1.40, 12 mo, 3% fee, daily</td><td class="num">264</td><td class="num">$530.30</td><td class="num">74.7%</td><td class="num">110.9%</td></tr><tr><td>$10,000, 1.15, 3 mo, 0% fee, weekly</td><td class="num">13</td><td class="num">$884.62</td><td class="num">107.1%</td><td class="num">188.6%</td></tr></tbody></table></div>
+<p>For the loan calculator, $50,000 at 12% for 24 months gives a monthly payment of $2,353.67 and total interest of $6,488.17, which matches a full amortization schedule that ends at a zero balance.</p>
+<h2>What we do not model</h2>
+<ul>
+<li>Percentage-of-sales repayment and reconciliation adjustments.</li>
+<li>Renewals, refinancing, consolidation and early-payoff discounts.</li>
+<li>Taxes, and the effect of the cost on your tax position.</li>
+<li>Whether you would qualify for any of the products compared.</li>
+</ul>
+<div class="callout ok"><strong>Found a mistake?</strong> Please <a href="/contact.html">tell us</a> with the inputs you used and the result you expected. Accuracy matters more to us than looking perfect.</div>
+<div class="callout"><strong>Educational information only.</strong> This is not financial or legal advice. Terms, fees and rules vary by provider and state, so read your contract and consider speaking with a qualified professional.</div>
+
+</article>
+</div>
+</main>
+<footer class="site"><div class="wrap">
+<div class="fgrid">
+<div><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#g2)"/><text x="16" y="22.5" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="19" fill="#04130d">%</text></svg><span>MCA <em>APR</em></span></a>
+<p class="about">A free, independent calculator and learning hub that helps business owners understand what a merchant cash advance really costs.</p></div>
+<div><h4>Tools</h4><ul><li><a href="/">MCA APR Calculator</a></li><li><a href="/payment-calculator.html">MCA Payment &amp; Revenue Calculator</a></li><li><a href="/mca-vs-loan-calculator.html">MCA vs. Loan Calculator</a></li><li><a href="/payback-period-calculator.html">MCA Payback Period Calculator</a></li><li><a href="/offer-checklist.html">MCA Offer Checklist</a></li></ul></div>
+<div><h4>Guides</h4><ul><li><a href="/what-is-a-factor-rate.html">What Is a Factor Rate? How MCA Pricing Works</a></li><li><a href="/how-to-calculate-mca-apr.html">How to Calculate the APR of a Merchant Cash Advance</a></li><li><a href="/mca-vs-business-loan.html">MCA vs. Business Loan: Costs, Speed and Trade-Offs</a></li><li><a href="/mca-hidden-fees-and-red-flags.html">MCA Hidden Fees and Contract Red Flags</a></li><li><a href="/questions-to-ask-before-signing-an-mca.html">12 Questions to Ask Before Signing an MCA</a></li></ul></div>
+<div><h4>Site</h4><ul>
+<li><a href="/calculators.html">All tools</a></li><li><a href="/guides.html">All guides</a></li><li><a href="/how-we-calculate.html">How we calculate</a></li>
+<li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li>
+<li><a href="/privacy-policy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Use</a></li></ul></div>
+</div>
+<p class="legal">MCA APR is an educational tool. It is not a lender, broker, law firm or financial advisor, and nothing on this site is financial, legal or tax advice. Results are estimates based on the numbers you enter; check your actual contract. &copy; 2026 MCA APR.</p>
+</div></footer>
+</body>
+</html>
